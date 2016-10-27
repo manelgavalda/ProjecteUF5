@@ -10,6 +10,12 @@ package model;
  * @author manel
  */
 public class Estadistiques {
+
+    public Estadistiques(int caps, int assaigs, int xuts) {
+        this.caps = caps;
+        this.assaigs = assaigs;
+        this.xuts = xuts;
+    }
     private int caps;
     private int assaigs;
     private int xuts;

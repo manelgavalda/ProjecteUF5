@@ -10,8 +10,17 @@ package model;
  * @author manel
  */
 public class Equip {
+
+
     private String nom;
     private String regio;
     private String lliga;
     private int posicioLliga;
+    
+        public Equip(String nom, String regio, String lliga, int posicioLliga) {
+        this.nom = nom;
+        this.regio = regio;
+        this.lliga = lliga;
+        this.posicioLliga = posicioLliga;
+    }
 }

@@ -13,15 +13,28 @@ import java.util.List;
  *
  * @author manel
  */
+
 public class Jugador {
-    //Ficarem en ArrayList ja que tindrem una llista per cada jugar(1) a tots els equips que ha jugat(1,n).
-    private final List haJugat=new ArrayList();    
+
+
+    private final List haJugat = new ArrayList();    
     private String  nom;
     private int numero;
     private int altura;
     private int pes;
     private int dataNaixement;
     
-    //Una colecció que ens relacionarà el jugador(1) pels equips que està jugant(1..n)
-    private Collection jugaPer = new ArrayList();
+        //Ficarem en ArrayList ja que tindrem una llista per cada jugador(1) a tots els equips que ha jugat(0,n).
+    public Jugador(String nom, int numero, int altura, int pes, int dataNaixement, String jugaPer) {
+        this.nom = nom;
+        this.numero = numero;
+        this.altura = altura;
+        this.pes = pes;
+        this.dataNaixement = dataNaixement;
+        this.jugaPer = jugaPer;
+    }
+    
+    //Una colecció que ens relacionarà el jugador(1) per l'equip que està jugant(0..1)
+    private String jugaPer;
+    
 }
