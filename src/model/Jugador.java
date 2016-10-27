@@ -4,10 +4,8 @@
  * and open the template in the editor.
  */
 package model;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
@@ -16,8 +14,8 @@ import java.util.List;
 
 public class Jugador {
 
-
-    private final List haJugat = new HashTree();    
+    //HashSet per tindre una llista dels jugadors perquè no és repeteixin.
+    private final Set haJugat = new HashSet();    
     private String  nom;
     private int numero;
     private int altura;
@@ -33,8 +31,6 @@ public class Jugador {
         this.dataNaixement = dataNaixement;
         this.jugaPer = jugaPer;
     }
-    
-    //Una colecció que ens relacionarà el jugador(1) per l'equip que està jugant(0..1)
     private String jugaPer;
     
 }
