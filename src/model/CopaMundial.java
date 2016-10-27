@@ -5,17 +5,25 @@
  */
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  *
  * @author manel
  */
 public class CopaMundial {
+
+    public CopaMundial(int any, int data, String guanyador, String millorJugador) {
+        this.any = any;
+        this.data = data;
+        this.guanyador = guanyador;
+        this.millorJugador = millorJugador;
+    }
+    
     private int any;
-    //Farem una llista per a la copa(1) que contindrà totes les seleccions que hi participen(1,n).
-    private List participants = new ArrayList();
+    //Farem un HashSet per a la copa(1) que contindrà totes les seleccions que hi participen(1,n) i que no fa falta que sigui ordenat, però si que no és repeteixqui.
+    private Set participants = new HashSet();
     private int data;
     private String guanyador;
     private String millorJugador;

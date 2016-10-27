@@ -17,7 +17,7 @@ import java.util.List;
 public class Jugador {
 
 
-    private final List haJugat = new ArrayList();    
+    private final List haJugat = new HashTree();    
     private String  nom;
     private int numero;
     private int altura;
