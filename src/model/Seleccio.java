@@ -13,4 +13,12 @@ public class Seleccio {
     private String nom;
     private String procedencia;
     private int posicioRanking;
+
+    public Seleccio(String nom, String procedencia, int posicioRanking) {
+        this.nom = nom;
+        this.procedencia = procedencia;
+        this.posicioRanking = posicioRanking;
+    }
+    
+    
 }
