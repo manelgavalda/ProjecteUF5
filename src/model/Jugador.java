@@ -15,12 +15,13 @@ import java.util.Set;
 public class Jugador {
 
     //HashSet per tindre una llista dels jugadors perquè no és repeteixin.
-    private final Set haJugat = new HashSet();    
+    private final Set <Equip>haJugat = new <Equip>HashSet();    
     private String  nom;
     private int numero;
     private int altura;
     private int pes;
     private int dataNaixement;
+    private String jugaPer;
     
         //Ficarem en ArrayList ja que tindrem una llista per cada jugador(1) a tots els equips que ha jugat(0,n).
     public Jugador(String nom, int numero, int altura, int pes, int dataNaixement, String jugaPer) {
@@ -31,6 +32,5 @@ public class Jugador {
         this.dataNaixement = dataNaixement;
         this.jugaPer = jugaPer;
     }
-    private String jugaPer;
     
 }

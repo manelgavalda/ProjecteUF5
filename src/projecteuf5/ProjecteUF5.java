@@ -5,12 +5,23 @@
  */
 package projecteuf5;
 
+import java.io.BufferedInputStream;
 import java.text.Normalizer;
 import java.util.Arrays;
+import java.util.Collections;
+import static java.util.Collections.list;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeMap;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 import java.util.regex.PatternSyntaxException;
+import java.util.stream.Collectors;
+import static jdk.nashorn.internal.objects.NativeArray.map;
 
 /**
  *
@@ -282,7 +293,7 @@ public class ProjecteUF5 {
 
         System.out.println(text.matches(regex));
 */
-         /* Exercici 9 */
+         /* Exercici 9 
         String text;
         Scanner scanner = new Scanner(System.in);
         Pattern pattern = null;
@@ -304,5 +315,31 @@ public class ProjecteUF5 {
         Matcher matcher = pattern.matcher(text);
 
         System.out.println(text.matches(regex));
-    }
+*/
+         
+         /*Exercici 2 col·leccions.*/
+        String TERMINATOR_STRING = "";
+        java.util.Scanner a = new java.util.Scanner(System.in);
+        StringBuilder b = new StringBuilder();
+        String strLine;
+        
+        while (!(strLine = a.nextLine()).equals(TERMINATOR_STRING)) {
+            b.append(strLine);
+            b.append(" ");
+        }
+        
+        String[] text=b.toString().split(" ");
+            
+        Arrays.stream(text)
+      .collect(Collectors.groupingBy(s -> s))
+      .forEach((k, v) -> System.out.println(k+" "+v.size()));
+        
+        /*Exercici 3 col·leccions.*/
+        
+        
+        
+        
+  }
+    
+    
 }
