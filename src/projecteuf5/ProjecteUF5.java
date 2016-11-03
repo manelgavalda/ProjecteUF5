@@ -317,7 +317,7 @@ public class ProjecteUF5 {
         System.out.println(text.matches(regex));
 */
          
-         /*Exercici 2 col·leccions.*/
+         /*Exercici 2 col·leccions.
         String TERMINATOR_STRING = "";
         java.util.Scanner a = new java.util.Scanner(System.in);
         StringBuilder b = new StringBuilder();
@@ -333,11 +333,27 @@ public class ProjecteUF5 {
         Arrays.stream(text)
       .collect(Collectors.groupingBy(s -> s))
       .forEach((k, v) -> System.out.println(k+" "+v.size()));
-        
+        */
+         
         /*Exercici 3 col·leccions.*/
+        UniCapsa box= new UniCapsa();
+        box.afegir("objecte1");
         
+        System.out.println(box.obtenir());
+
+        System.out.println(box.esPlena());
         
+        box.buidar();
         
+        System.out.println(box.esPlena());
+        
+        System.out.println(box.obtenir());
+        
+        box.afegir("objecte2");
+        
+        System.out.println(box.esPlena());
+        
+        System.out.println(box.obtenir());
         
   }
     
