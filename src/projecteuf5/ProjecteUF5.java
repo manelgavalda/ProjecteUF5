@@ -7,7 +7,9 @@ package projecteuf5;
 
 import java.io.BufferedInputStream;
 import java.text.Normalizer;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import static java.util.Collections.list;
 import java.util.HashMap;
@@ -32,7 +34,6 @@ public class ProjecteUF5 {
     /**
      * @param args the command line arguments
      */
-    
     public static void main(String[] args) {
         // TODO code application logic here
 
@@ -157,9 +158,9 @@ public class ProjecteUF5 {
             System.out.println("El text no és palíndrom");
         }
         
-*/
- //replace all classe matcher (parto per cadena buida "") retorna el nou string.
- /* Exercici 6
+         */
+        //replace all classe matcher (parto per cadena buida "") retorna el nou string.
+        /* Exercici 6
         Scanner scanner = new Scanner(System.in);
         String text1,text2;
         StringBuilder textnou1 = new StringBuilder();
@@ -239,9 +240,8 @@ public class ProjecteUF5 {
         } else {
             System.out.println("No ho són");
         }
- */
- 
-         /* Exercici 5  regex
+         */
+ /* Exercici 5  regex
          
          String text;
         StringBuilder textnou = new StringBuilder();
@@ -269,9 +269,8 @@ public class ProjecteUF5 {
          String removed = normalized.replaceAll("\\p{InCombiningDiacriticalMarks}+","");
          
          System.out.println(text);
-        */
-         
-         /* Exercici 7
+         */
+ /* Exercici 7
         String text;
         Scanner scanner = new Scanner(System.in);
         String regex = "^(.+)@(.+)\\.(.+)$";
@@ -292,8 +291,8 @@ public class ProjecteUF5 {
         Matcher matcher = pattern.matcher(text);
 
         System.out.println(text.matches(regex));
-*/
-         /* Exercici 9 
+         */
+ /* Exercici 9 
         String text;
         Scanner scanner = new Scanner(System.in);
         Pattern pattern = null;
@@ -315,9 +314,8 @@ public class ProjecteUF5 {
         Matcher matcher = pattern.matcher(text);
 
         System.out.println(text.matches(regex));
-*/
-         
-         /*Exercici 2 col·leccions.
+         */
+ /*Exercici 2 col·leccions.
         String TERMINATOR_STRING = "";
         java.util.Scanner a = new java.util.Scanner(System.in);
         StringBuilder b = new StringBuilder();
@@ -333,9 +331,8 @@ public class ProjecteUF5 {
         Arrays.stream(text)
       .collect(Collectors.groupingBy(s -> s))
       .forEach((k, v) -> System.out.println(k+" "+v.size()));
-        */
-         
-        /*Exercici 3 col·leccions.*/
+         */
+ /*Exercici 1 classes genperiques.
         UniCapsa box= new UniCapsa();
         box.afegir("objecte1");
         
@@ -354,8 +351,47 @@ public class ProjecteUF5 {
         System.out.println(box.esPlena());
         
         System.out.println(box.obtenir());
-        
-  }
-    
-    
+         */
+ /* Multicapsa */
+        MultiCapsa mc = new MultiCapsa(new ArrayList());
+
+        mc.afegir("Primer");
+        mc.afegir("Segon");
+
+        System.out.println((mc.esBuida() ? "buida" : "no buida"));
+
+        System.out.println(mc.obtenir());
+
+        mc.eliminar();
+
+        System.out.println(mc.obtenir());
+
+        mc.eliminar();
+
+        System.out.println((mc.buidar() ? "buidada" : "no buidada"));
+
+        System.out.println((mc.esBuida() ? "buida" : "no buida"));
+
+        mc = new MultiCapsa(new HashSet());
+
+        mc.afegir("Primer");
+
+        mc.afegir("Segon");
+
+        System.out.println((mc.esBuida() ? "buida" : "no buida"));
+
+        System.out.println(mc.obtenir());
+
+        mc.eliminar();
+
+        System.out.println(mc.obtenir());
+
+        mc.eliminar();
+
+        System.out.println((mc.buidar() ? "buidada" : "no buidada"));
+
+        System.out.println((mc.esBuida() ? "buida" : "no buida"));
+
+    }
+
 }
