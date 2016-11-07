@@ -66,9 +66,10 @@ public boolean eliminar(){
     Heu pogut? Modifiqueu les bicicletes fins aconseguir-ho. 
     La capçalera (no del tot correcta) del mètode serà pareguda a la següent:
     */
-    public static <E extends Comparable> E ordenar(Collection <E> contingut){
-        List <E> list = new ArrayList<>(contingut);
-        return Collections.sort(list);
+    public <E extends Comparable> Collection<E> ordenat(){
+        List list = new ArrayList<>(this.contingut);
+        Collections.sort(list);
+        return list;
 }
 }
 
