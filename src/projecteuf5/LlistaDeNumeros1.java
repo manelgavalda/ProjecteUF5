@@ -47,9 +47,9 @@ public class LlistaDeNumeros1 {
         out.close();
         }
         catch(Exception e) {
-            System.out.println("Fitxer incorrecte");
+            System.out.println("Error, fitxer incorrecte, " + e);
         } finally{
-            System.out.println("Final de la excepció");
+            System.out.println("Final de l'execució");
         }
     }
 
@@ -71,9 +71,9 @@ public class LlistaDeNumeros1 {
             raf.close();
 
         } catch (Exception e) {
-            System.out.println("Fitxer no trobat");
+            System.out.println("Error, fitxer no trobat, " + e);
         } finally {
-            System.out.println("Final de la excepció");
+            System.out.println("Final de l'execució");
         }
 
     }

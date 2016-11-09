@@ -397,6 +397,16 @@ public class ProjecteUF5 {
 
  /* Exercici 1 excepcions */
  
+LlistaDeNumeros1 a = new LlistaDeNumeros1();
+
+//No funciona perquè no existeix la carpeta.
+a.writeList("carpetanoexistent/fitxerimaginari");
+//Funciona ja que pot crear el fitxer amb la llista.
+a.writeList("hola");
+//No el troba i per tant salta l'excepció.
+a.readList("fitxernoexistent");
+//Funciona.
+a.readList("prova");
     }
 
 }
