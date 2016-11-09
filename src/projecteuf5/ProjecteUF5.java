@@ -352,7 +352,7 @@ public class ProjecteUF5 {
         
         System.out.println(box.obtenir());
          */
- /* Multicapsa */
+ /* Exercici 2 Multicapsa
         MultiCapsa mc = new MultiCapsa(new ArrayList());
 
         mc.afegir("Primer");
@@ -391,7 +391,12 @@ public class ProjecteUF5 {
         System.out.println((mc.buidar() ? "buidada" : "no buidada"));
 
         System.out.println((mc.esBuida() ? "buida" : "no buida"));
+        
+        System.out.println();
+*/
 
+ /* Exercici 1 excepcions */
+ 
     }
 
 }
