@@ -6,6 +6,7 @@
 package projecteuf5;
 
 import java.io.BufferedInputStream;
+import java.io.IOException;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,7 +35,7 @@ public class ProjecteUF5 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, Throwable {
         // TODO code application logic here
 
         /* Exerici 2
@@ -461,9 +462,10 @@ public class ProjecteUF5 {
  
  /* Exercici 5 excepcions
  
+ AutoCloseableExample e = new AutoCloseableExample();
+ 
+ e.throwable();
 
- 
- */
- 
+*/
 }
 }
