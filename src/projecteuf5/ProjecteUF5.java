@@ -428,14 +428,19 @@ a.readList("hola");
 a.writeList("holas");
 */
 
- 
- 
- 
- /*Exerici 3 excepcions 
+ /*Exerici 3 excepcions */
  LlansaExcepcio a= new LlansaExcepcio();
+ LlansaExcepcio2 b= new LlansaExcepcio2();
+ LlansaExcepcio3 c= new LlansaExcepcio3();
+ LlansaExcepcio4 d= new LlansaExcepcio4();
  
  a.metode4();
- */
+ 
+ b.metode3();
+ 
+ c.metode2();
+ 
+ d.metode1();
     }
 
 }
