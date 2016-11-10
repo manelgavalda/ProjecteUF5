@@ -56,7 +56,8 @@ public class ProjecteUF5 {
 
             }
         }
-         */
+ */
+        
  /* Exercici 3
         String caracter,text,distingir,orientacio;
         String sn = "SNsn";
@@ -106,7 +107,8 @@ public class ProjecteUF5 {
             System.out.println("Caràcter trobat en la posició: " + i);
             i = text.indexOf(caracter, i + 1);
         }
-         */
+ */
+ 
  /* Exercici 4
         Scanner scanner = new Scanner(System.in);
         String text;
@@ -124,18 +126,19 @@ public class ProjecteUF5 {
             System.out.println("El text no és palíndrom");
         }
         //hola= text.equals(new StringBuffer(text).reverse().toString()) ? System.out.println("El text és palíndrom") : System.out.println("El text no es palindrom")
-         */
+*/
+ 
  /* Exercici 4 regex.
  
- String text;
- Scanner scanner = new Scanner(System.in);
- Pattern pattern = null;
- String regex="\\p{Punct}";
- 
- do{
-     System.out.println("Introdueix un text");
-     text= scanner.nextLine();
- }while(text.isEmpty());
+        String text;
+        Scanner scanner = new Scanner(System.in);
+        Pattern pattern = null;
+        String regex="\\p{Punct}";
+
+        do{
+            System.out.println("Introdueix un text");
+            text= scanner.nextLine();
+        }while(text.isEmpty());
  
             try{
                 pattern  = Pattern.compile(regex);
@@ -143,12 +146,12 @@ public class ProjecteUF5 {
                 System.out.println("Error a l'expressió regular: "+e.getDescription()+"\nTorna-ho a provar.");
             }
  
- Matcher matcher = pattern.matcher(text);
- 
- text=matcher.replaceAll("");
- 
- String normalized = Normalizer.normalize(text, Normalizer.Form.NFD);
- String removed = normalized.replaceAll("\\p{InCombiningDiacriticalMarks}+","");
+        Matcher matcher = pattern.matcher(text);
+
+        text=matcher.replaceAll("");
+
+        String normalized = Normalizer.normalize(text, Normalizer.Form.NFD);
+        String removed = normalized.replaceAll("\\p{InCombiningDiacriticalMarks}+","");
  
         System.out.println(removed);
         
@@ -201,8 +204,9 @@ public class ProjecteUF5 {
         } else {
             System.out.println("No ho són");
         }
- 
-  /* Exercici 6 regex 
+ */
+        
+ /* Exercici 6 regex 
         Scanner scanner = new Scanner(System.in);
         String text1,text2;
         StringBuilder textnou1 = new StringBuilder();
@@ -240,7 +244,8 @@ public class ProjecteUF5 {
         } else {
             System.out.println("No ho són");
         }
-         */
+ */
+        
  /* Exercici 5  regex
          
          String text;
@@ -269,7 +274,8 @@ public class ProjecteUF5 {
          String removed = normalized.replaceAll("\\p{InCombiningDiacriticalMarks}+","");
          
          System.out.println(text);
-         */
+ */
+ 
  /* Exercici 7
         String text;
         Scanner scanner = new Scanner(System.in);
@@ -291,7 +297,8 @@ public class ProjecteUF5 {
         Matcher matcher = pattern.matcher(text);
 
         System.out.println(text.matches(regex));
-         */
+ */
+ 
  /* Exercici 9 
         String text;
         Scanner scanner = new Scanner(System.in);
@@ -314,7 +321,8 @@ public class ProjecteUF5 {
         Matcher matcher = pattern.matcher(text);
 
         System.out.println(text.matches(regex));
-         */
+ */
+ 
  /*Exercici 2 col·leccions.
         String TERMINATOR_STRING = "";
         java.util.Scanner a = new java.util.Scanner(System.in);
@@ -331,7 +339,8 @@ public class ProjecteUF5 {
         Arrays.stream(text)
       .collect(Collectors.groupingBy(s -> s))
       .forEach((k, v) -> System.out.println(k+" "+v.size()));
-         */
+ */
+ 
  /*Exercici 1 classes genperiques.
         UniCapsa box= new UniCapsa();
         box.afegir("objecte1");
@@ -351,7 +360,8 @@ public class ProjecteUF5 {
         System.out.println(box.esPlena());
         
         System.out.println(box.obtenir());
-         */
+ */
+ 
  /* Exercici 2 Multicapsa
         MultiCapsa mc = new MultiCapsa(new ArrayList());
 
@@ -395,8 +405,7 @@ public class ProjecteUF5 {
         System.out.println();
 */
 
- /* Exercici 1 excepcions */
- 
+ /* Exercici 1 excepcions 
 LlistaDeNumeros1 a = new LlistaDeNumeros1();
 
 //No funciona perquè no existeix la carpeta.
@@ -407,6 +416,26 @@ a.writeList("hola");
 a.readList("fitxernoexistent");
 //Funciona.
 a.readList("prova");
+*/
+ 
+ /* Exercici 2 excepcions
+ LlistaDeNumeros2 a = new LlistaDeNumeros2();
+ 
+ //Dona error ja que el valorno són números i ens salta un NumberFormatException
+a.readList("hola");
+
+ //Ens donarà un error de que el valor i no existeix dins l'array, IndexOutOfBoundsException
+a.writeList("holas");
+*/
+
+ 
+ 
+ 
+ /*Exerici 3 excepcions 
+ LlansaExcepcio a= new LlansaExcepcio();
+ 
+ a.metode4();
+ */
     }
 
 }
