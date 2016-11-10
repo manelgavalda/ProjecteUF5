@@ -406,41 +406,58 @@ public class ProjecteUF5 {
 */
 
  /* Exercici 1 excepcions 
-LlistaDeNumeros1 a = new LlistaDeNumeros1();
+        LlistaDeNumeros1 a = new LlistaDeNumeros1();
 
-//No funciona perquè no existeix la carpeta.
-a.writeList("carpetanoexistent/fitxerimaginari");
-//Funciona ja que pot crear el fitxer amb la llista.
-a.writeList("hola");
-//No el troba i per tant salta l'excepció.
-a.readList("fitxernoexistent");
-//Funciona.
-a.readList("prova");
+        //No funciona perquè no existeix la carpeta.
+        a.writeList("carpetanoexistent/fitxerimaginari");
+        //Funciona ja que pot crear el fitxer amb la llista.
+        a.writeList("hola");
+        //No el troba i per tant salta l'excepció.
+        a.readList("fitxernoexistent");
+        //Funciona.
+        a.readList("prova");
+        */
+
+         /* Exercici 2 excepcions
+         LlistaDeNumeros2 a = new LlistaDeNumeros2();
+
+         //Dona error ja que el valorno són números i ens salta un NumberFormatException
+        a.readList("hola");
+
+         //Ens donarà un error de que el valor i no existeix dins l'array, IndexOutOfBoundsException
+        a.writeList("holas");
+*/
+
+ /*Exerici 3 excepcions
+        LlansaExcepcio a= new LlansaExcepcio();
+        LlansaExcepcio2 b= new LlansaExcepcio2();
+        LlansaExcepcio3 c= new LlansaExcepcio3();
+        LlansaExcepcio4 d= new LlansaExcepcio4();
+
+        a.metode4();
+
+        b.metode3();
+
+        c.metode2();
+
+        d.metode1();
 */
  
- /* Exercici 2 excepcions
- LlistaDeNumeros2 a = new LlistaDeNumeros2();
+ /* Exercici 4 excepcions 
  
- //Dona error ja que el valorno són números i ens salta un NumberFormatException
-a.readList("hola");
-
- //Ens donarà un error de que el valor i no existeix dins l'array, IndexOutOfBoundsException
-a.writeList("holas");
-*/
-
- /*Exerici 3 excepcions */
- LlansaExcepcio a= new LlansaExcepcio();
- LlansaExcepcio2 b= new LlansaExcepcio2();
- LlansaExcepcio3 c= new LlansaExcepcio3();
- LlansaExcepcio4 d= new LlansaExcepcio4();
+        //1. Si el pare llança excepció el fill pot triar llançarla o no.
  
- a.metode4();
+        //2. Si el pare no llança excepció amb el seu mètode el fill tampoc podrà. 
+        //Ja que l'excepció és part de la capçalera del mètode i per tant és com si fos un paràmetre més
+        //Per tant el pare tendria que llençar l'excepció en el seu mètode també.
  
- b.metode3();
+        //3. Pel que he dit més dalt els 2 si que poden llençar l'excepció. No podrien ser 2 excepcions diferents.
+        //El pare podria tirar la classe Exception general i el fill cridar una Excepció concreta.
+        //Però no podrien cridar una excepció cadascú.
+        //Per tant en el cas que el pare llança una excepció concreta el fill tindrà que llençar la mateixa.
+        //I si llança la classe exception és fill podrà triar quina llançar dins la mateixa classe.
  
- c.metode2();
+**/
  
- d.metode1();
-    }
-
+}
 }
