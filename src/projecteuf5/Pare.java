@@ -11,6 +11,6 @@ package projecteuf5;
  */
 class Pare{
 
-    public void method1() throws java.io.CharConversionException{};
+    public void method1() throws java.io.CharConversionException{}
 
 }
