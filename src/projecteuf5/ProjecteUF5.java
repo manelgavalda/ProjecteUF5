@@ -459,5 +459,11 @@ public class ProjecteUF5 {
  
 **/
  
+ /* Exercici 5 excepcions
+ 
+
+ 
+ */
+ 
 }
 }
