@@ -18,16 +18,16 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import static projecteuf5.ObjectStreams.dataFile;
 
 /**
  *
  * @author manel
  */
 public class Alumne {
-    public String nom;
-    public String cognoms;
-    public Date dataNaixement;
+    static final String FITXER = "alumnes.dat";
+    static final String NOM="Manel";
+    static final String COGNOMS="Gavaldà Andreu";
+    static final Date DATANAIXEMENT;
     public String email;
     public List moduls = new ArrayList();
     
@@ -38,7 +38,7 @@ public class Alumne {
         ObjectOutputStream out = null;
         try {
             out = new ObjectOutputStream(new
-                    BufferedOutputStream(new FileOutputStream(dataFile)));
+                    BufferedOutputStream(new FileOutputStream(FITXER)));
 
             out.writeObject(Calendar.getInstance());
             for (int i = 0; i < prices.length; i ++) {
@@ -53,7 +53,7 @@ public class Alumne {
         ObjectInputStream in = null;
         try {
             in = new ObjectInputStream(new
-                    BufferedInputStream(new FileInputStream(dataFile)));
+                    BufferedInputStream(new FileInputStream(FITXER)));
 
             Calendar date = null;
             BigDecimal price;
