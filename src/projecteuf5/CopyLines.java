@@ -40,8 +40,8 @@ public class CopyLines {
             if (inputStream != null) {
                 inputStream.close();
             }
-            if (inputStream != null) {
-                inputStream.close();
+            if (inputStream2 != null) {
+                inputStream2.close();
             }
             if (outputStream != null) {
                 outputStream.close();
