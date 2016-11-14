@@ -469,8 +469,8 @@ public class ProjecteUF5 {
  e.throwable();
 
 */
- 
- /* Exercici 1 Fitxers */
+ //Exercici 4 fitxer, no fer.
+ /* Exercici 5 Fitxers */
 
 
     }
