@@ -18,18 +18,27 @@ import java.io.IOException;
 public class CopyBytes {
     public static void main(String[] args) throws IOException {
         FileInputStream in = null;
+        FileInputStream in2 = null;
         FileOutputStream out = null;
         try {
-            in = new FileInputStream("xanadu.txt");
-            out = new FileOutputStream("outagain.txt");
+            in = new FileInputStream("origen1.txt");
+            in2 = new FileInputStream("origen2.txt");
+            out = new FileOutputStream("fusio.txt");
             int c;
 
             while ((c = in.read()) != -1) {
                 out.write(c);
             }
+            while ((c = in2.read()) != -1) {
+                out.write(c);
+            }
+            
         } finally {
             if (in != null) {
                 in.close();
+            }
+            if (in2 != null) {
+                in2.close();
             }
             if (out != null) {
                 out.close();
