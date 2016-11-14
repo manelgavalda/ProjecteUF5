@@ -9,8 +9,6 @@ package projecteuf5;
  *
  * @author manel
  */
-
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.BufferedReader;
@@ -18,6 +16,7 @@ import java.io.PrintWriter;
 import java.io.IOException;
 
 public class CopyLines {
+
     public static void main(String[] args) throws IOException {
 
         BufferedReader inputStream = null;
@@ -27,7 +26,7 @@ public class CopyLines {
         try {
             inputStream = new BufferedReader(new FileReader("origen1.txt"));
             inputStream2 = new BufferedReader(new FileReader("origen2.txt"));
-        outputStream = new PrintWriter(new FileWriter("fusio.txt"));
+            outputStream = new PrintWriter(new FileWriter("fusio.txt"));
 
             String l;
             while ((l = inputStream.readLine()) != null) {
