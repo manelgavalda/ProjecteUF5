@@ -467,5 +467,9 @@ public class ProjecteUF5 {
  e.throwable();
 
 */
+ 
+ /* Exercici 1 Fitxers */
+ 
+ 
 }
 }
