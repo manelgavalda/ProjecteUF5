@@ -470,6 +470,7 @@ public class ProjecteUF5 {
 
 */
  //Exercici 4 fitxer, no fer.
+ 
  /* Exercici 5 Fitxers */
 
 
