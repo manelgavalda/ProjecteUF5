@@ -6,6 +6,8 @@
 package projecteuf5;
 
 import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.Normalizer;
 import java.util.ArrayList;
@@ -469,7 +471,20 @@ public class ProjecteUF5 {
 */
  
  /* Exercici 1 Fitxers */
+        String[] fitxers;
+        fitxers = new String[]{"origen1.txt", "origen2.txt"};
  
+        StringBuilder strContent = new StringBuilder("");
+
+  for (String fitxer : fitxers) {
+      File fusio = new File(fitxer); 
+      int ch;
+      try ( FileInputStream stream = new FileInputStream(fusio)) {   
+          while( (ch = stream.read()) != -1) {
+              strContent.append((char) ch); 
+          }
+      } 
+   }
  
 }
 }
