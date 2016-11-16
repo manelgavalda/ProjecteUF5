@@ -34,8 +34,11 @@ public class MainFrame extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -46,7 +49,8 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel2.setToolTipText("");
         jPanel2.setLayout(new java.awt.BorderLayout());
 
-        jButton1.setText("LLISTAT");
+        jButton1.setText("CRUD");
+        jButton1.setActionCommand("CRUD");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -54,7 +58,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jPanel2.add(jButton1, java.awt.BorderLayout.CENTER);
 
-        jButton2.setText("CRUD");
+        jButton2.setText("LLISTAT");
+        jButton2.setActionCommand("LLISTAT");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -77,15 +82,23 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
         jPanel4.setForeground(new java.awt.Color(0, 255, 102));
 
+        jLabel1.setText("Llista de jugadors");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 920, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(294, 294, 294)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(313, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(313, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel4, "card2");
@@ -94,15 +107,23 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
         jPanel5.setForeground(new java.awt.Color(51, 255, 51));
 
+        jLabel2.setText("DELETE JUGADORS");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 920, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(376, 376, 376)
+                .addComponent(jLabel2)
+                .addContainerGap(418, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(176, 176, 176)
+                .addComponent(jLabel2)
+                .addContainerGap(371, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel5, "card2");
@@ -111,15 +132,23 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
         jPanel6.setForeground(new java.awt.Color(153, 255, 153));
 
+        jLabel3.setText("EXIT");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 920, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(411, 411, 411)
+                .addComponent(jLabel3)
+                .addContainerGap(480, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(178, 178, 178)
+                .addComponent(jLabel3)
+                .addContainerGap(369, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel6, "card2");
@@ -169,7 +198,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel3.repaint();
         jPanel3.revalidate();
         
-        jPanel3.add(jPanel4);
+        jPanel3.add(jPanel5);
         jPanel3.repaint();
         jPanel3.revalidate();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -191,7 +220,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel3.repaint();
         jPanel3.revalidate();
         
-        jPanel3.add(jPanel5);
+        jPanel3.add(jPanel4);
         jPanel3.repaint();
         jPanel3.revalidate();  
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -235,6 +264,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
