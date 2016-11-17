@@ -5,6 +5,10 @@
  */
 package GUI;
 
+import java.awt.Frame;
+import javax.swing.JFrame;
+import javax.swing.JTable;
+
 /**
  *
  * @author manel
@@ -194,6 +198,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
         jPanel3.removeAll();
         jPanel3.repaint();
         jPanel3.revalidate();
@@ -201,17 +206,21 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel3.add(jPanel5);
         jPanel3.repaint();
         jPanel3.revalidate();
+        
+        
+        Frame f = new JFrame();
+        Object[] columns = {"One","Two","Three"};
+        Object[][] objects =     {
+            {new Integer(0), "Zero", "Zero 0"},
+            {new Integer(10), "Ten", "Zero 0"},
+            {new Integer(20), "Twenty", "Zero 0"},
+        };
+        JTable t = new JTable(objects,columns);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        jPanel3.removeAll();
-        jPanel3.repaint();
-        jPanel3.revalidate();
-        
-        jPanel3.add(jPanel6);
-        jPanel3.repaint();
-        jPanel3.revalidate();   
+        System.exit(0);  
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -220,9 +229,9 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel3.repaint();
         jPanel3.revalidate();
         
-        jPanel3.add(jPanel4);
+        jPanel3.add(jPanel5);
         jPanel3.repaint();
-        jPanel3.revalidate();  
+        jPanel3.revalidate();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
