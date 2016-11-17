@@ -198,7 +198,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+        /*
         jPanel3.removeAll();
         jPanel3.repaint();
         jPanel3.revalidate();
@@ -206,16 +206,8 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel3.add(jPanel5);
         jPanel3.repaint();
         jPanel3.revalidate();
+        */
         
-        
-        Frame f = new JFrame();
-        Object[] columns = {"One","Two","Three"};
-        Object[][] objects =     {
-            {new Integer(0), "Zero", "Zero 0"},
-            {new Integer(10), "Ten", "Zero 0"},
-            {new Integer(20), "Twenty", "Zero 0"},
-        };
-        JTable t = new JTable(objects,columns);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -225,6 +217,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        /*
         jPanel3.removeAll();
         jPanel3.repaint();
         jPanel3.revalidate();
@@ -232,6 +225,18 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel3.add(jPanel5);
         jPanel3.repaint();
         jPanel3.revalidate();
+        */
+        Frame f = new JFrame();
+        Object[] columns = {"Jugador","Equip","Posició"};
+        Object[][] objects =     {
+            {"Ramón", "Amposta","Pilar"},
+            {"Alex", "Vinaròs", "Ala"},
+            {"Manel", "Tatami", "Flanker"},
+        };
+        JTable t = new JTable(objects,columns);
+        f.add(t);
+        f.setSize(this.getWidth(),this.getHeight());
+        f.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
