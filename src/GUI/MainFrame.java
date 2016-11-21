@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import model.Jugador;
 
 /**
  *
@@ -251,22 +252,24 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        /*
+        ModelTaula<Jugador> mt = new ModelTaula(new String[]{"Nom", "Email", "Número"}, MainFrame.agenda, Jugador.class);
+        mt = new ModelTaula(JFramePrincipal.agenda, Contacte.class);
         
+        //Li assigno el model a la taula
+        jTable2.setModel(mt);
         
-        Frame f = new JFrame();
-        Object[] columns = {"Jugador","Equip","Posició"};
-        Object[][] objects =     {
-            {"Ramonet", "Amposta","Pilar"},
-            {"Kragmon", "Vinaròs", "Ala"},
-            {"Manel", "Tatami", "Flanker"},
-        };
-        JTable t = new JTable(objects,columns);
-        f.add(t);
-        f.setSize(this.getWidth(),this.getHeight());
-        f.setVisible(true);
-        */
+        //Si volem canviar l'ordre de visualització de les columnes, borra-les, etc...
+        //TableColumnModel cm=jTable1.getColumnModel();
+        //cm.moveColumn(0, 1);    //La primer columna passa a mostrar-se en 2n lloc
+        //cm.removeColumn(cm.getColumn(2));
+
+
+        jPanel2.removeAll();
+        jPanel2.revalidate();
+        jPanel2.add(jPanel4);
+        jPanel2.revalidate();
+        jPanel2.repaint();
+        
         jPanel3.removeAll();
         jPanel3.repaint();
         jPanel3.revalidate();
