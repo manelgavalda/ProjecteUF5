@@ -5,11 +5,13 @@
  */
 package model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author manel
  */
-public class Equip {
+public class Equip{
 
 
     private String nom;

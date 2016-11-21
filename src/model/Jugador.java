@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package model;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +14,7 @@ import java.util.Set;
  * @author manel
  */
 
-public class Jugador {
+public class Jugador implements Serializable {
 
     //HashSet per tindre una llista dels jugadors perquè no és repeteixin.
     private String  _1nom;
