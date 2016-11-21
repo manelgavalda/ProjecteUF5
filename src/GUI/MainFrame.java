@@ -6,10 +6,21 @@
 package GUI;
 
 import java.awt.Frame;
+import java.beans.Introspector;
+import java.beans.PropertyDescriptor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.AbstractTableModel;
 import model.Jugador;
 
 /**
@@ -252,11 +263,11 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ModelTaula<Jugador> mt = new ModelTaula(new String[]{"Nom", "Email", "Número"}, MainFrame.agenda, Jugador.class);
-        mt = new ModelTaula(JFramePrincipal.agenda, Contacte.class);
+        ModelTaula<Jugador> mt = new ModelTaula(new String[]{"Nom", "Email", "Número"}, MainFrame.haJugat, Jugador.class);
+        mt = new ModelTaula(MainFrame.haJugat, Jugador.class);
         
         //Li assigno el model a la taula
-        jTable2.setModel(mt);
+        jTable1.setModel(mt);
         
         //Si volem canviar l'ordre de visualització de les columnes, borra-les, etc...
         //TableColumnModel cm=jTable1.getColumnModel();
@@ -318,6 +329,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
     }
+    
+    public static ArrayList<Jugador> haJugat;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -339,3 +352,106 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
+
+class ModelTaula<T> extends AbstractTableModel {
+    
+    final Class<T> typeParameterClass;
+
+    private String[] columnNames;
+    private List<T> dades;
+
+    public ModelTaula(String[] nomColumnes, ArrayList<T> dades, Class<T> typeParameterClass) {
+        this.typeParameterClass = typeParameterClass;
+        
+        this.columnNames = nomColumnes;
+        this.dades = dades;
+    }
+
+    public ModelTaula(ArrayList<T> dades, Class<T> typeParameterClass) {
+        this.typeParameterClass = typeParameterClass;
+        if(dades!=null && !dades.isEmpty()){
+            //Obtinc els noms de les columnes a partir de la reflexió de la classe
+            //Class<?> classe = dades.get(0).getClass();
+            Class<?> classe = this.typeParameterClass;
+
+            //Anoto el nº de camps de la classe
+            int ncamps = classe.getDeclaredFields().length;
+
+            //Omplo l'array de noms de columna a partir del camps de la classe. Se suposa que el format dels noms dels camps 
+            //és _xnom_camp, sent x un enter major o igual que 0, per això elimino els dígits i el _
+            this.columnNames=new String[ncamps];
+
+            for(int i=0;i<ncamps;i++){
+                //Busquem el primer grup de _dígits numèrics del nom de camp
+                Matcher matcher = Pattern.compile("_\\d+").matcher(classe.getDeclaredFields()[i].getName());
+                matcher.find();
+                //El nom que mostrarem serà a partir del següent caracter que hi ha després del _grup numèric trobat
+                this.columnNames[i]=classe.getDeclaredFields()[i].getName().substring(matcher.group().length()).toUpperCase();
+                //this.columnNames[i]=classe.getDeclaredFields()[i].getName().replaceAll("[_0-9]", "").toUpperCase();
+                //this.columnNames[i]=classe.getDeclaredFields()[i].getName().replaceAll("[_\\d]", "").toUpperCase();
+            }
+        }
+        this.dades = dades;
+    }
+
+    //Necessari per a que mostre el nom de les columnes passat al crear l'objecte
+    @Override
+    public String getColumnName(int column) {
+        return columnNames[column];
+    }
+    
+    //Necessari per a que mostre el número correcte de files de dades
+    @Override
+    public int getRowCount() {
+        int cont=0;
+        
+        if(dades!=null) cont=dades.size();
+        
+        return cont;
+    }
+
+    //Necessari per a que mostre el número correcte de columnes 
+    @Override
+    public int getColumnCount() {
+        
+        int cont=0;
+        
+        if(columnNames!=null) cont=columnNames.length;
+        
+        return cont;
+    }
+
+    //Necessari per a que mostre les dades passades al crear l'objecte
+    @Override
+    public Object getValueAt(int rowIndex, int columnIndex) {
+        //Si demanen la columna -1 vol dir que hem de retornar tot l'objecte contingut a la fila
+        if(columnIndex==-1) return dades.get(rowIndex);
+        Class<?> classe = this.typeParameterClass;
+        //Class<?> classe = dades.get(0).getClass();
+        //Anotem el nº de camps de la classe
+        int ncamps = classe.getDeclaredFields().length;
+
+        Method[] methods = new Method[ncamps];
+        int i = 0;
+        try {
+            for (PropertyDescriptor pD : Introspector.getBeanInfo(classe).getPropertyDescriptors()) {
+                Method m = pD.getReadMethod();
+                if (m != null & !m.getName().equals("getClass")) {
+                    methods[i++] = m;
+                }
+            }
+        } catch (java.beans.IntrospectionException ex) {
+            //Logger.getLogger(ModelTaula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            return methods[columnIndex].invoke(dades.get(rowIndex));
+        } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
+            Logger.getLogger(ModelTaula.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+
+    }
+
+}
+
