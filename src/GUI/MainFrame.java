@@ -120,7 +120,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1112, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1118, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,7 +266,7 @@ public class MainFrame extends javax.swing.JFrame {
         ModelTaula<Jugador> mt = new ModelTaula(new String[]{"Nom", "Email", "Número"}, MainFrame.haJugat, Jugador.class);
         mt = new ModelTaula(MainFrame.haJugat, Jugador.class);
         
-        //Li assigno el model a la taula
+        //Li assigno el model a la taula. Sen va el menu a la merda.
         jTable1.setModel(mt);
         
         //Si volem canviar l'ordre de visualització de les columnes, borra-les, etc...
@@ -275,15 +275,10 @@ public class MainFrame extends javax.swing.JFrame {
         //cm.removeColumn(cm.getColumn(2));
 
 
-        jPanel2.removeAll();
-        jPanel2.revalidate();
-        jPanel2.add(jPanel4);
-        jPanel2.revalidate();
-        jPanel2.repaint();
-        
         jPanel3.removeAll();
         jPanel3.repaint();
         jPanel3.revalidate();
+        
         jPanel3.add(jPanel4);
         jPanel3.repaint();
         jPanel3.revalidate();
