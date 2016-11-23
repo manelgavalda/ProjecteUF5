@@ -41,8 +41,9 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainFrame
      */
-    public MainFrame() {
+    public MainFrame() throws IOException, FileNotFoundException, ClassNotFoundException {
         initComponents();
+        initElsMeusComponents();
     }
 
     /**
@@ -415,17 +416,23 @@ public class MainFrame extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
-            new MainFrame().setVisible(true);
+            try {
+                new MainFrame().setVisible(true);
+            } catch (IOException ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
         });
     }
         //Santi. Creem les noves finestres dins el mètode que inicialitza els meus components
     private void initElsMeusComponents() throws FileNotFoundException, IOException, ClassNotFoundException {
              //Vector per guardar els nostres contactes
-             agenda =new ArrayList<>(); 
-             telefons= new TreeSet<>();
+             jugatPer =new ArrayList<>(); 
+             equips= new TreeSet<>();
              
              //Santi 21-11-2016. El fitxer en les dades de l'agenda se diu "agenda.dat"
-             File f= new File("agenda.dat");    //Si no s'especifica cap directori s'usa el del projecte
+             File f= new File("jugatPer.dat");    //Si no s'especifica cap directori s'usa el del projecte
              //Si el fitxer ja existeix copiem el seu contingut al vector agenda. 
              if(f.exists()){
                 ObjectInputStream entrada=new ObjectInputStream(new BufferedInputStream(new FileInputStream(f)));
@@ -433,10 +440,10 @@ public class MainFrame extends javax.swing.JFrame {
                 while(true)
                 {
                     try{
-                        Contacte c=(Contacte)entrada.readObject();
-                        agenda.add(c);
-                        ArrayList<Telefon> lt=c.get3434343telefon();
-                        telefons.addAll(lt);
+                        Jugador c=(Jugador)entrada.readObject();
+                        jugatPer.add(c);
+                        ArrayList<Equip> lt=c.get8haJugatPer();
+                        equips.addAll(lt);
                     }
                     catch(Exception ex){
                         break;
@@ -447,11 +454,10 @@ public class MainFrame extends javax.swing.JFrame {
              
             jPanel2.removeAll();
             jPanel2.revalidate();
-            jPanel2.add(jPanel6);
-            jPanel2.revalidate();
             jPanel2.repaint();
     }
     
+    //Col·leccions meves.
     public static ArrayList<Jugador>jugatPer;
     public static TreeSet<Equip> equips;
 
