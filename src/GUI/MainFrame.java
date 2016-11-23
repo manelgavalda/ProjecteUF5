@@ -330,16 +330,19 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-//        ModelTaula<Jugador> mt = new ModelTaula(new String[]{"Nom", "Email", "Número"}, MainFrame.haJugat, Jugador.class);
-//        mt = new ModelTaula(MainFrame.haJugat, Jugador.class);
+                //Creo un nou objecte passant el nom de les columnes, i les dades a mostrar contingudes a un ArrayList
+        ModelTaula<Jugador> mt = new ModelTaula(new String[]{"Nom", "Cognoms", "Telèfons"}, MainFrame.jugatPer, Jugador.class);
+        mt = new ModelTaula(MainFrame.jugatPer, Jugador.class);
         
-        //Li assigno el model a la taula. Sen va el menu a la merda.
-        //jTable1.setModel(mt);
+        //Li assigno el model a la taula
+        jTable1.setModel(mt);
         
         //Si volem canviar l'ordre de visualització de les columnes, borra-les, etc...
         //TableColumnModel cm=jTable1.getColumnModel();
         //cm.moveColumn(0, 1);    //La primer columna passa a mostrar-se en 2n lloc
         //cm.removeColumn(cm.getColumn(2));
+
+
 
 
         jPanel3.removeAll();
