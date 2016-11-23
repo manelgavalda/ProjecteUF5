@@ -12,6 +12,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -370,13 +371,13 @@ public class MainFrame extends javax.swing.JFrame {
         //a.add(new Jugador("Pepito", "pepito@gmail.com"));
         //a.add(new Jugador("Ramonet", "ramonet@gmail.com"));
         c.set8haJugatPer(a);
-        JFramePrincipal.agenda.add(c);
+        MainFrame.jugatPer.add(c);
         
-        ModelTaula<Contacte> mt2 = new ModelTaula<>(new String[]{"Nom", "Cognoms", "Telèfons"}, JFramePrincipal.agenda, Contacte.class);
-        mt2 = new ModelTaula<>(JFramePrincipal.agenda, Contacte.class);
+        ModelTaula<Jugador> mt2 = new ModelTaula<>(new String[]{"Nom", "Cognoms", "Telèfons"}, MainFrame.jugatPer, Jugador.class);
+        mt2 = new ModelTaula<>(MainFrame.jugatPer, Jugador.class);
         
         //Li assigno el model a la taula
-        jTable3.setModel(mt2);
+        jTable2.setModel(mt2);
     }//GEN-LAST:event_jButton5MouseClicked
 
     /**
@@ -412,7 +413,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
     }
     
-    public static ArrayList<Jugador> haJugat;
+    public static ArrayList<Jugador>jugatPer;
+    public static TreeSet<Equip> equips;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
