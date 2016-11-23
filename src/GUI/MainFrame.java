@@ -8,6 +8,12 @@ package GUI;
 import java.awt.Frame;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -172,9 +178,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel1.setText("Nom");
 
-        jLabel2.setText("Altura");
+        jLabel2.setText("Email");
 
-        jLabel3.setText("Email");
+        jLabel3.setText("Altura");
 
         jLabel4.setText("Pes");
 
@@ -218,10 +224,10 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField4)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
-                            .addComponent(jTextField1))
-                        .addGap(162, 162, 162))
+                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(jTextField1)
+                            .addComponent(jTextField2))
+                        .addGap(139, 139, 139))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton6)
@@ -240,13 +246,13 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(jLabel2)
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -257,7 +263,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(jButton4))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(97, Short.MAX_VALUE)
+                .addContainerGap(95, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(86, 86, 86))
         );
@@ -323,8 +329,8 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ModelTaula<Jugador> mt = new ModelTaula(new String[]{"Nom", "Email", "Número"}, MainFrame.haJugat, Jugador.class);
-        mt = new ModelTaula(MainFrame.haJugat, Jugador.class);
+//        ModelTaula<Jugador> mt = new ModelTaula(new String[]{"Nom", "Email", "Número"}, MainFrame.haJugat, Jugador.class);
+//        mt = new ModelTaula(MainFrame.haJugat, Jugador.class);
         
         //Li assigno el model a la taula. Sen va el menu a la merda.
         //jTable1.setModel(mt);
@@ -411,6 +417,39 @@ public class MainFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(() -> {
             new MainFrame().setVisible(true);
         });
+    }
+        //Santi. Creem les noves finestres dins el mètode que inicialitza els meus components
+    private void initElsMeusComponents() throws FileNotFoundException, IOException, ClassNotFoundException {
+             //Vector per guardar els nostres contactes
+             agenda =new ArrayList<>(); 
+             telefons= new TreeSet<>();
+             
+             //Santi 21-11-2016. El fitxer en les dades de l'agenda se diu "agenda.dat"
+             File f= new File("agenda.dat");    //Si no s'especifica cap directori s'usa el del projecte
+             //Si el fitxer ja existeix copiem el seu contingut al vector agenda. 
+             if(f.exists()){
+                ObjectInputStream entrada=new ObjectInputStream(new BufferedInputStream(new FileInputStream(f)));
+               
+                while(true)
+                {
+                    try{
+                        Contacte c=(Contacte)entrada.readObject();
+                        agenda.add(c);
+                        ArrayList<Telefon> lt=c.get3434343telefon();
+                        telefons.addAll(lt);
+                    }
+                    catch(Exception ex){
+                        break;
+                    }
+                }
+                entrada.close();      
+             }
+             
+            jPanel2.removeAll();
+            jPanel2.revalidate();
+            jPanel2.add(jPanel6);
+            jPanel2.revalidate();
+            jPanel2.repaint();
     }
     
     public static ArrayList<Jugador>jugatPer;
