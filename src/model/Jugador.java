@@ -24,7 +24,7 @@ public class Jugador implements Serializable {
     private int _5pes;
     private int _6dataNaixement;
     private String _7jugaPer;
-    private ArrayList _8haJugatPer; //Ficarem en ArrayList ja que tindrem una llista per cada jugador(1) a tots els equips que ha jugat(0,n).
+    private ArrayList<Equip> _8haJugatPer; //Ficarem en ArrayList ja que tindrem una llista per cada jugador(1) a tots els equips que ha jugat(0,n).
 
     public Jugador(String _1nom, String _2email, int _3numero, float _4altura, int _5pes, int _6dataNaixement, String _7jugaPer, ArrayList _8haJugatPer) {
         this._1nom = _1nom;
@@ -37,8 +37,12 @@ public class Jugador implements Serializable {
         this._8haJugatPer = _8haJugatPer;
     }
 
+    public Jugador(String _1nom, String _2email) {
+        this._1nom = _1nom;
+        this._2email = _2email;
+    }
     
-    
+
     public String get1nom() {
         return _1nom;
     }
@@ -95,11 +99,11 @@ public class Jugador implements Serializable {
         this._7jugaPer = _7jugaPer;
     }
 
-    public ArrayList get8haJugatPer() {
+    public ArrayList<Equip> get8haJugatPer() {
         return _8haJugatPer;
     }
 
-    public void set8haJugatPer(ArrayList _8haJugatPer) {
+    public void set8haJugatPer(ArrayList<Equip> _8haJugatPer) {
         this._8haJugatPer = _8haJugatPer;
     }
     

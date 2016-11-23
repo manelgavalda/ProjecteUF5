@@ -20,7 +20,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ListSelectionModel;
 import javax.swing.table.AbstractTableModel;
+import model.Equip;
 import model.Jugador;
 
 /**
@@ -141,6 +143,11 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel5.setPreferredSize(new java.awt.Dimension(947, 605));
 
         jButton5.setText("Afegir");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
 
         jButton4.setText("Borrar");
 
@@ -200,9 +207,8 @@ public class MainFrame extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jButton5)
                         .addGap(6, 6, 6)))
@@ -350,6 +356,28 @@ public class MainFrame extends javax.swing.JFrame {
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
+        // TODO add your handling code here:
+        Jugador c = new Jugador(jTextField1.getText(),jTextField2.getText());
+        ArrayList<Equip> a=new ArrayList<>();
+
+        //Afegim com a telèfons del contacte els seleccionats a la taula de telèfons
+        ListSelectionModel lsm=jTable1.getSelectionModel();
+        for(int i=lsm.getMinSelectionIndex();i<=lsm.getMaxSelectionIndex();i++)
+            if(lsm.isSelectedIndex(i)) a.add((Equip)jTable1.getModel().getValueAt(i, -1));
+        //Com no tenim CRUD de telèfons s'inserten quan convé en codi
+        //a.add(new Jugador("Pepito", "pepito@gmail.com"));
+        //a.add(new Jugador("Ramonet", "ramonet@gmail.com"));
+        c.set8haJugatPer(a);
+        JFramePrincipal.agenda.add(c);
+        
+        ModelTaula<Contacte> mt2 = new ModelTaula<>(new String[]{"Nom", "Cognoms", "Telèfons"}, JFramePrincipal.agenda, Contacte.class);
+        mt2 = new ModelTaula<>(JFramePrincipal.agenda, Contacte.class);
+        
+        //Li assigno el model a la taula
+        jTable3.setModel(mt2);
+    }//GEN-LAST:event_jButton5MouseClicked
 
     /**
      * @param args the command line arguments
