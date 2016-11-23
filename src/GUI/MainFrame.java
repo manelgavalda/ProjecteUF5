@@ -454,10 +454,12 @@ public class MainFrame extends javax.swing.JFrame {
                 }
                 entrada.close();      
              }
-             
+             //CUidao que borra el panell
+             /*
             jPanel2.removeAll();
             jPanel2.revalidate();
             jPanel2.repaint();
+*/
     }
     
     //Col·leccions meves.
