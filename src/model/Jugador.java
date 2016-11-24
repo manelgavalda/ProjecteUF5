@@ -41,6 +41,14 @@ public class Jugador implements Serializable {
         this._1nom = _1nom;
         this._2email = _2email;
     }
+
+    public Jugador(String _1nom, String _2email, int _3numero, float _4altura) {
+        this._1nom = _1nom;
+        this._2email = _2email;
+        this._3numero = _3numero;
+        this._4altura = _4altura;
+    }
+    
     
 
     public String get1nom() {
