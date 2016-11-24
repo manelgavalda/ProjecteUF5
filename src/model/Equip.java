@@ -68,7 +68,5 @@ public class Equip implements Comparable<Equip>,Serializable{
         this._4posicioLliga = _4posicioLliga;
     }
     
-
-        
         
 }

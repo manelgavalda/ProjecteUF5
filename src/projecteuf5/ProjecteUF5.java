@@ -40,7 +40,7 @@ public class ProjecteUF5 {
     public static void main(String[] args) throws IOException, Throwable {
         // TODO code application logic here
 
-        /* Exerici 2
+        /* Exerici 1 STRING
         if (args.length == 0) {
             System.out.println("No has pasat arguments");
         } else if (!args[0].contains(".")) {
@@ -61,7 +61,7 @@ public class ProjecteUF5 {
         }
  */
         
- /* Exercici 3
+ /* Exercici 2 STRING
         String caracter,text,distingir,orientacio;
         String sn = "SNsn";
         char resposta;
@@ -112,7 +112,7 @@ public class ProjecteUF5 {
         }
  */
  
- /* Exercici 4
+ /* Exercici 3 STRING
         Scanner scanner = new Scanner(System.in);
         String text;
         String hola;
@@ -131,7 +131,7 @@ public class ProjecteUF5 {
         //hola= text.equals(new StringBuffer(text).reverse().toString()) ? System.out.println("El text és palíndrom") : System.out.println("El text no es palindrom")
 */
  
- /* Exercici 4 regex.
+ /* Exercici 3 STRING v2.(REGEX)
  
         String text;
         Scanner scanner = new Scanner(System.in);
@@ -165,8 +165,8 @@ public class ProjecteUF5 {
         }
         
          */
-        //replace all classe matcher (parto per cadena buida "") retorna el nou string.
-        /* Exercici 6
+ 
+        /* Exercici 6 STRING
         Scanner scanner = new Scanner(System.in);
         String text1,text2;
         StringBuilder textnou1 = new StringBuilder();
@@ -209,7 +209,7 @@ public class ProjecteUF5 {
         }
  */
         
- /* Exercici 6 regex 
+ /* Exercici 6 STRING v2.(REGEX)
         Scanner scanner = new Scanner(System.in);
         String text1,text2;
         StringBuilder textnou1 = new StringBuilder();
@@ -247,9 +247,9 @@ public class ProjecteUF5 {
         } else {
             System.out.println("No ho són");
         }
- */
-        
- /* Exercici 5  regex
+ */ 
+ 
+ /* Exercici 5  STRING(prova)
          
          String text;
         StringBuilder textnou = new StringBuilder();
@@ -279,7 +279,7 @@ public class ProjecteUF5 {
          System.out.println(text);
  */
  
- /* Exercici 7
+ /* Exercici 7 STRING
         String text;
         Scanner scanner = new Scanner(System.in);
         String regex = "^(.+)@(.+)\\.(.+)$";
@@ -302,7 +302,7 @@ public class ProjecteUF5 {
         System.out.println(text.matches(regex));
  */
  
- /* Exercici 9 
+/* Exerici 9 STRING (prova)
         String text;
         Scanner scanner = new Scanner(System.in);
         Pattern pattern = null;
@@ -324,6 +324,7 @@ public class ProjecteUF5 {
         Matcher matcher = pattern.matcher(text);
 
         System.out.println(text.matches(regex));
+ 
  */
  
  /*Exercici 2 col·leccions.
