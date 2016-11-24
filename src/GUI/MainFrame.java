@@ -322,14 +322,14 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
-        jPanel3.removeAll();
-        jPanel3.repaint();
-        jPanel3.revalidate();
-        
-        jPanel3.add(jPanel5);
-        jPanel3.repaint();
-        jPanel3.revalidate();
+//        
+//        jPanel3.removeAll();
+//        jPanel3.repaint();
+//        jPanel3.revalidate();
+//        
+//        jPanel3.add(jPanel5);
+//        jPanel3.repaint();
+//        jPanel3.revalidate();
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -353,15 +353,15 @@ public class MainFrame extends javax.swing.JFrame {
         //cm.removeColumn(cm.getColumn(2));
 
 
-
-
-        jPanel3.removeAll();
-        jPanel3.repaint();
-        jPanel3.revalidate();
-        
-        jPanel3.add(jPanel4);
-        jPanel3.repaint();
-        jPanel3.revalidate();
+//
+//
+//        jPanel3.removeAll();
+//        jPanel3.repaint();
+//        jPanel3.revalidate();
+//        
+//        jPanel3.add(jPanel4);
+//        jPanel3.repaint();
+//        jPanel3.revalidate();
         
 
     }//GEN-LAST:event_jButton2ActionPerformed

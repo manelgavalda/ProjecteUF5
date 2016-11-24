@@ -5,8 +5,6 @@
  */
 package GUInova;
 
-import static GUI.MainFrame.equips;
-import static GUI.MainFrame.jugatPer;
 import java.awt.event.WindowEvent;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
@@ -113,6 +111,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel2.setLayout(new java.awt.CardLayout());
 
+        jPanel3.setBackground(new java.awt.Color(102, 153, 0));
+
         jLabel3.setText("Welcome");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -133,6 +133,8 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel3, "card2");
+
+        jPanel4.setBackground(new java.awt.Color(102, 153, 0));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -165,6 +167,8 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         jPanel2.add(jPanel4, "card3");
+
+        jPanel5.setBackground(new java.awt.Color(102, 153, 0));
 
         jLabel2.setText("Nom");
 
@@ -209,8 +213,18 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         jButton5.setText("Modificar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Cancelar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Borrar");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
@@ -421,11 +435,11 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTextField1.setText("");
         jTextField2.setText("");
-        jTextField3.setText("");
-        jTextField4.setText("");
+        //jTextField3.setText("");
+        //jTextField4.setText("");
 
         //Creo un nou objecte passant el nom de les columnes, i les dades a mostrar contingudes a un ArrayList
-        ModelTaula<Equip> mt = new ModelTaula<>(new String[]{"Nom", "REgió"}, new ArrayList(MainFrame.equips), Equip.class);
+        ModelTaula<Equip> mt = new ModelTaula<>(new String[]{"Nom", "Regió"}, new ArrayList(MainFrame.equips), Equip.class);
         //mt = new ModelTaula<>(new ArrayList(JFramePrincipal.telefons), Telefon.class);
         
         //Li assigno el model a la taula
@@ -486,8 +500,8 @@ public class MainFrame extends javax.swing.JFrame {
             ModelTaula<Jugador> mt=(ModelTaula<Jugador>)jTable3.getModel();
             jTextField1.setText((String)mt.getValueAt(i, 0));
             jTextField2.setText((String)mt.getValueAt(i, 1));
-            jTextField3.setText((String)mt.getValueAt(i, 2));
-            jTextField4.setText((String)mt.getValueAt(i, 3));
+            //jTextField3.setText((String)mt.getValueAt(i, 2));
+            //jTextField4.setText((String)mt.getValueAt(i, 3));
             
             ArrayList<Equip> lt=(ArrayList<Equip>)mt.getValueAt(i, 2);
             jTable2.getSelectionModel().clearSelection();
@@ -502,14 +516,44 @@ public class MainFrame extends javax.swing.JFrame {
         }else{
             jTextField1.setText("");
             jTextField2.setText("");
-            jTextField3.setText("");
-            jTextField4.setText("");
+            //jTextField3.setText("");
+            //jTextField4.setText("");
             jTable2.getSelectionModel().clearSelection();  
             jButton5.setEnabled(false);
             jButton7.setEnabled(false);
 
         }
     }//GEN-LAST:event_jTable3MouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+                Jugador c=(Jugador)jTable3.getModel().getValueAt(jTable3.getSelectedRow(),-1);
+        c.set1nom(jTextField1.getText());
+        c.set2email(jTextField2.getText());
+        //c.set3numero(jTextField3.getText());
+        //c.set2email(jTextField4.getText());
+        int[] selecs=jTable2.getSelectedRows();
+        ArrayList<Equip> equips=new ArrayList<>();
+        for (int i = 0; i < selecs.length; i++) {
+            equips.add((Equip)jTable2.getModel().getValueAt(selecs[i],-1));
+        }
+
+        c.set8haJugatPer(equips);
+        
+        ModelTaula<Jugador> mt2 = new ModelTaula<>(new String[]{"Nom", "email", "Equips"}, MainFrame.jugatPer, Jugador.class);
+        //mt2 = new ModelTaula<>(JFramePrincipal.agenda, Contacte.class);
+        
+        //Li assigno el model a la taula
+        jTable3.setModel(mt2);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTable2.getSelectionModel().clearSelection();  
+
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -580,6 +624,8 @@ public class MainFrame extends javax.swing.JFrame {
              //CUidao que borra el panell
              
             jPanel2.removeAll();
+            jPanel2.revalidate();
+            jPanel2.add(jPanel3);
             jPanel2.revalidate();
             jPanel2.repaint();
 

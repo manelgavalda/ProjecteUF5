@@ -27,7 +27,7 @@ public class Alumne {
     static final String FITXER = "alumnes.dat";
     static final String NOM="Manel";
     static final String COGNOMS="Gavaldà Andreu";
-    static final Date DATANAIXEMENT;
+ //   static final Date DATANAIXEMENT;
     public String email;
     public List moduls = new ArrayList();
     
@@ -41,11 +41,11 @@ public class Alumne {
                     BufferedOutputStream(new FileOutputStream(FITXER)));
 
             out.writeObject(Calendar.getInstance());
-            for (int i = 0; i < prices.length; i ++) {
-                out.writeObject(prices[i]);
-                out.writeInt(units[i]);
-                out.writeUTF(descs[i]);
-            }
+//            for (int i = 0; i < prices.length; i ++) {
+//                out.writeObject(prices[i]);
+//                out.writeInt(units[i]);
+//                out.writeUTF(descs[i]);
+//            }
         } finally {
             if(out!=null) out.close();
         }
