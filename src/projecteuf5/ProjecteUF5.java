@@ -327,7 +327,7 @@ public class ProjecteUF5 {
  
  */
  
- /*Exercici 2 col·leccions.
+ /*Exercici 2 COL·LECCIONS.
         String TERMINATOR_STRING = "";
         java.util.Scanner a = new java.util.Scanner(System.in);
         StringBuilder b = new StringBuilder();
@@ -345,7 +345,7 @@ public class ProjecteUF5 {
       .forEach((k, v) -> System.out.println(k+" "+v.size()));
  */
  
- /*Exercici 1 classes genperiques.
+ /*Exercici 1 CLASSES GENÈRIQUES
         UniCapsa box= new UniCapsa();
         box.afegir("objecte1");
         
@@ -366,7 +366,7 @@ public class ProjecteUF5 {
         System.out.println(box.obtenir());
  */
  
- /* Exercici 2 Multicapsa
+ /* Exercici 2 CLASSES GENÈRIQUES
         MultiCapsa mc = new MultiCapsa(new ArrayList());
 
         mc.afegir("Primer");
