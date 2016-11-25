@@ -9,11 +9,14 @@ import java.awt.event.WindowEvent;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
 import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -69,9 +72,7 @@ public class MainFrame extends javax.swing.JFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -82,6 +83,11 @@ public class MainFrame extends javax.swing.JFrame {
         jTable3 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
@@ -174,9 +180,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel4.setText("Email");
 
-        jLabel5.setText("Altura");
+        jLabel5.setText("Numero");
 
-        jLabel6.setText("Pes");
+        jLabel6.setText("Juga Per");
 
         jTextField1.setText("Pepito");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -192,13 +198,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jTextField3.setText("1,80");
+        jTextField3.setText("10");
 
-        jLabel7.setText("m");
-
-        jTextField4.setText("80");
-
-        jLabel8.setText("kg");
+        jTextField4.setText("Equip");
 
         jButton4.setText("Afegir");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -268,49 +270,43 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(288, 288, 288)
+                .addComponent(jButton7)
+                .addContainerGap(360, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(34, 34, 34)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel6))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField4)
-                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
-                                            .addComponent(jLabel2)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jTextField1))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel5)
+                                                .addComponent(jLabel6))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(jTextField4)
+                                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jLabel2))
+                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel5Layout.createSequentialGroup()
                                             .addComponent(jLabel4)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7)))
+                                            .addGap(28, 28, 28)
+                                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addComponent(jButton4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(288, 288, 288)
-                .addComponent(jButton7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(12, 12, 12)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,30 +314,21 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel8)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addGap(19, 19, 19)
-                                        .addComponent(jLabel7))
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton5)
@@ -379,7 +366,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
             //Creo un nou objecte passant el nom de les columnes, i les dades a mostrar contingudes a un ArrayList
-        ModelTaula<Jugador> mt = new ModelTaula(new String[]{"Nom", "Email","Altura","Pes"}, MainFrame.jugatPer, Jugador.class);
+        ModelTaula<Jugador> mt = new ModelTaula(new String[]{"Nom", "Email","Numero","Juga Per", "Equips"}, MainFrame.jugadors, Jugador.class);
         //mt = new ModelTaula(JFramePrincipal.agenda, Contacte.class);
         
         //Li assigno el model a la taula
@@ -414,9 +401,9 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
                 // TODO add your handling code here:
         Jugador c=(Jugador)jTable3.getModel().getValueAt(jTable3.getSelectedRow(),-1);
-        jugatPer.remove(c);
+        jugadors.remove(c);
         
-        ModelTaula<Jugador> mt2 = new ModelTaula<>(new String[]{"Nom", "Email", "Equips"}, MainFrame.jugatPer, Jugador.class);
+        ModelTaula<Jugador> mt2 = new ModelTaula<>(new String[]{"Nom", "Email", "Equips"}, MainFrame.jugadors, Jugador.class);
         //mt2 = new ModelTaula<>(JFramePrincipal.agenda, Contacte.class);
         
         //Li assigno el model a la taula
@@ -435,8 +422,8 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTextField1.setText("");
         jTextField2.setText("");
-        //jTextField3.setText("");
-        //jTextField4.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
 
         //Creo un nou objecte passant el nom de les columnes, i les dades a mostrar contingudes a un ArrayList
         ModelTaula<Equip> mt = new ModelTaula<>(new String[]{"Nom", "Regió"}, new ArrayList(MainFrame.equips), Equip.class);
@@ -450,7 +437,7 @@ public class MainFrame extends javax.swing.JFrame {
         //cm.moveColumn(0, 1);    //La primer columna passa a mostrar-se en 2n lloc
         //cm.removeColumn(cm.getColumn(2));
         
-        ModelTaula<Jugador> mt2 = new ModelTaula<>(new String[]{"Nom", "Email", "Equips"}, MainFrame.jugatPer, Jugador.class);
+        ModelTaula<Jugador> mt2 = new ModelTaula<>(new String[]{"Nom", "Email", "Equips"}, MainFrame.jugadors, Jugador.class);
         //mt2 = new ModelTaula<>(JFramePrincipal.agenda, Contacte.class);
         
         //Li assigno el model a la taula
@@ -469,20 +456,20 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
         // TODO add your handling code here:
-        Jugador c = new Jugador(jTextField1.getText(),jTextField2.getText());
+        Jugador c = new Jugador(jTextField1.getText(),jTextField2.getText(),Integer.valueOf(jTextField3.getText()),jTextField4.getText());
         ArrayList<Equip> a=new ArrayList<>();
 
         //Afegim com a telèfons del contacte els seleccionats a la taula de telèfons
         ListSelectionModel lsm=jTable2.getSelectionModel();
         for(int i=lsm.getMinSelectionIndex();i<=lsm.getMaxSelectionIndex();i++)
             if(lsm.isSelectedIndex(i)) a.add((Equip)jTable2.getModel().getValueAt(i, -1));
-        //Com no tenim CRUD de telèfons s'inserten quan convé en codi
-        a.add(new Equip("Harlequins", "Inglaterra"));
-        a.add(new Equip("Toulon", "França"));
-        c.set8haJugatPer(a);
-        MainFrame.jugatPer.add(c);
+        //Com no tenim CRUD de equips s'inserten quan convé en codi
+        a.add(new Equip("Harlequins", "Inglaterra","Super Rugby",5));
+        a.add(new Equip("Toulon", "França","Top 14",2));
+        c.set5haJugatPer(a);
+        MainFrame.jugadors.add(c);
         
-        ModelTaula<Jugador> mt2 = new ModelTaula<>(new String[]{"Nom", "Email", "Equips"}, MainFrame.jugatPer, Jugador.class);
+        ModelTaula<Jugador> mt2 = new ModelTaula<>(new String[]{"Nom", "Email","Número","Juga Per","Equips"}, MainFrame.jugadors, Jugador.class);
         //mt2 = new ModelTaula<>(JFramePrincipal.agenda, Contacte.class);
         
         //Li assigno el model a la taula
@@ -500,8 +487,8 @@ public class MainFrame extends javax.swing.JFrame {
             ModelTaula<Jugador> mt=(ModelTaula<Jugador>)jTable3.getModel();
             jTextField1.setText((String)mt.getValueAt(i, 0));
             jTextField2.setText((String)mt.getValueAt(i, 1));
-            //jTextField3.setText((String)mt.getValueAt(i, 2));
-            //jTextField4.setText((String)mt.getValueAt(i, 3));
+            jTextField3.setText((String)mt.getValueAt(i, 2));
+            jTextField4.setText((String)mt.getValueAt(i, 3));
             
             ArrayList<Equip> lt=(ArrayList<Equip>)mt.getValueAt(i, 2);
             jTable2.getSelectionModel().clearSelection();
@@ -516,8 +503,8 @@ public class MainFrame extends javax.swing.JFrame {
         }else{
             jTextField1.setText("");
             jTextField2.setText("");
-            //jTextField3.setText("");
-            //jTextField4.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
             jTable2.getSelectionModel().clearSelection();  
             jButton5.setEnabled(false);
             jButton7.setEnabled(false);
@@ -530,17 +517,17 @@ public class MainFrame extends javax.swing.JFrame {
                 Jugador c=(Jugador)jTable3.getModel().getValueAt(jTable3.getSelectedRow(),-1);
         c.set1nom(jTextField1.getText());
         c.set2email(jTextField2.getText());
-        //c.set3numero(jTextField3.getText());
-        //c.set2email(jTextField4.getText());
+        c.set3numero(Integer.valueOf(jTextField3.getText()));
+        c.set2email(jTextField4.getText());
         int[] selecs=jTable2.getSelectedRows();
         ArrayList<Equip> equips=new ArrayList<>();
         for (int i = 0; i < selecs.length; i++) {
             equips.add((Equip)jTable2.getModel().getValueAt(selecs[i],-1));
         }
 
-        c.set8haJugatPer(equips);
+        c.set5haJugatPer(equips);
         
-        ModelTaula<Jugador> mt2 = new ModelTaula<>(new String[]{"Nom", "email", "Equips"}, MainFrame.jugatPer, Jugador.class);
+        ModelTaula<Jugador> mt2 = new ModelTaula<>(new String[]{"Nom", "Email","Número", "Juga Per", "Equips"}, MainFrame.jugadors, Jugador.class);
         //mt2 = new ModelTaula<>(JFramePrincipal.agenda, Contacte.class);
         
         //Li assigno el model a la taula
@@ -551,9 +538,35 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTextField1.setText("");
         jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
         jTable2.getSelectionModel().clearSelection();  
 
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        try {                                   
+                // TODO add your handling code here:
+                ObjectOutputStream salida = null;
+                salida = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("jugadors.dat")));
+                for(int i=0;i<jugadors.size();i++)
+                {
+                    try{
+                        Jugador c=(Jugador)jugadors.get(i);
+                        salida.writeObject(c);
+                    }
+                    catch(Exception ex){
+                        break;
+                    }
+                }
+                salida.close();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -598,12 +611,12 @@ public class MainFrame extends javax.swing.JFrame {
     
     private void initElsMeusComponents() throws FileNotFoundException, IOException, ClassNotFoundException {
              //Vector per guardar els nostres contactes
-             jugatPer =new ArrayList<>(); 
+             jugadors =new ArrayList<>(); 
              equips= new TreeSet<>();
              
-             //Santi 21-11-2016. El fitxer en les dades de l'agenda se diu "agenda.dat"
-             File f= new File("jugatPer.dat");    //Si no s'especifica cap directori s'usa el del projecte
-             //Si el fitxer ja existeix copiem el seu contingut al vector agenda. 
+             //El fitxer en les dades de l'agenda se diu "jugadors.dat"
+             File f= new File("jugadors.dat");    //Si no s'especifica cap directori s'usa el del projecte
+             //Si el fitxer ja existeix copiem el seu contingut al vector jugadors. 
              if(f.exists()){
                 ObjectInputStream entrada=new ObjectInputStream(new BufferedInputStream(new FileInputStream(f)));
                
@@ -611,8 +624,8 @@ public class MainFrame extends javax.swing.JFrame {
                 {
                     try{
                         Jugador c=(Jugador)entrada.readObject();
-                        jugatPer.add(c);
-                        ArrayList<Equip> lt=c.get8haJugatPer();
+                        jugadors.add(c);
+                        ArrayList<Equip> lt=c.get5haJugatPer();
                         equips.addAll(lt);
                     }
                     catch(Exception ex){
@@ -632,7 +645,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     //Col·leccions meves.
-    public static ArrayList<Jugador>jugatPer;
+    public static ArrayList<Jugador>jugadors;
     public static TreeSet<Equip> equips;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -648,8 +661,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

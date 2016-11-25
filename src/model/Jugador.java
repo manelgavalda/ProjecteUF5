@@ -20,36 +20,15 @@ public class Jugador implements Serializable {
     private String  _1nom;
     private String  _2email;
     private int _3numero;
-    private float _4altura;
-    private int _5pes;
-    private int _6dataNaixement;
-    private String _7jugaPer;
-    private ArrayList<Equip> _8haJugatPer; //Ficarem en ArrayList ja que tindrem una llista per cada jugador(1) a tots els equips que ha jugat(0,n).
+    private String _4jugaPer;
+    private ArrayList<Equip> _5haJugatPer; //Ficarem en ArrayList ja que tindrem una llista per cada jugador(1) a tots els equips que ha jugat(0,n).
 
-    public Jugador(String _1nom, String _2email, int _3numero, float _4altura, int _5pes, int _6dataNaixement, String _7jugaPer, ArrayList _8haJugatPer) {
+    public Jugador(String _1nom, String _2email, int _3numero, String _4jugaPer) {
         this._1nom = _1nom;
         this._2email = _2email;
         this._3numero = _3numero;
-        this._4altura = _4altura;
-        this._5pes = _5pes;
-        this._6dataNaixement = _6dataNaixement;
-        this._7jugaPer = _7jugaPer;
-        this._8haJugatPer = _8haJugatPer;
+        this._4jugaPer = _4jugaPer;
     }
-
-    public Jugador(String _1nom, String _2email) {
-        this._1nom = _1nom;
-        this._2email = _2email;
-    }
-
-    public Jugador(String _1nom, String _2email, int _3numero, float _4altura) {
-        this._1nom = _1nom;
-        this._2email = _2email;
-        this._3numero = _3numero;
-        this._4altura = _4altura;
-    }
-    
-    
 
     public String get1nom() {
         return _1nom;
@@ -75,45 +54,22 @@ public class Jugador implements Serializable {
         this._3numero = _3numero;
     }
 
-    public float get4altura() {
-        return _4altura;
+    public String get4jugaPer() {
+        return _4jugaPer;
     }
 
-    public void set4altura(float _4altura) {
-        this._4altura = _4altura;
+    public void set4jugaPer(String _4jugaPer) {
+        this._4jugaPer = _4jugaPer;
     }
 
-    public int get5pes() {
-        return _5pes;
+    public ArrayList<Equip> get5haJugatPer() {
+        return _5haJugatPer;
     }
 
-    public void set5pes(int _5pes) {
-        this._5pes = _5pes;
+    public void set5haJugatPer(ArrayList<Equip> _5haJugatPer) {
+        this._5haJugatPer = _5haJugatPer;
     }
 
-    public int get6dataNaixement() {
-        return _6dataNaixement;
-    }
 
-    public void set6dataNaixement(int _6dataNaixement) {
-        this._6dataNaixement = _6dataNaixement;
-    }
-
-    public String get7jugaPer() {
-        return _7jugaPer;
-    }
-
-    public void set7jugaPer(String _7jugaPer) {
-        this._7jugaPer = _7jugaPer;
-    }
-
-    public ArrayList<Equip> get8haJugatPer() {
-        return _8haJugatPer;
-    }
-
-    public void set8haJugatPer(ArrayList<Equip> _8haJugatPer) {
-        this._8haJugatPer = _8haJugatPer;
-    }
-    
        
 }
