@@ -11,8 +11,7 @@ import java.io.Serializable;
  *
  * @author manel
  */
-public class Equip implements Comparable<Equip>,Serializable{
-
+public class Equip implements Comparable<Equip>, Serializable {
 
     private String _1nom;
     private String _2regio;
@@ -31,11 +30,6 @@ public class Equip implements Comparable<Equip>,Serializable{
         this._2regio = _2regio;
     }
 
-    
-    @Override
-    public int compareTo(Equip o) {
-        return this._4posicioLliga-o._4posicioLliga;
-    }
     public String get1nom() {
         return _1nom;
     }
@@ -67,6 +61,16 @@ public class Equip implements Comparable<Equip>,Serializable{
     public void set4posicioLliga(int _4posicioLliga) {
         this._4posicioLliga = _4posicioLliga;
     }
-    
-        
+
+    @Override
+    public int compareTo(Equip o) {
+        return this._4posicioLliga - o._4posicioLliga;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Nom:%s, Regió:%s, Lliga:%s, Posició Lliga:%d\n",
+                this._1nom, this._2regio, this._3lliga, this._4posicioLliga);
+    }
+
 }
