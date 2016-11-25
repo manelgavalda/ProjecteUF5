@@ -119,23 +119,25 @@ public class MainFrame extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(102, 153, 0));
 
-        jLabel3.setText("Welcome");
+        jLabel3.setBackground(new java.awt.Color(51, 51, 255));
+        jLabel3.setFont(new java.awt.Font("NanumBarunGothic", 1, 36)); // NOI18N
+        jLabel3.setText("Benvinguts");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(263, 263, 263)
-                .addComponent(jLabel3)
-                .addContainerGap(396, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(197, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(151, 151, 151))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(178, 178, 178)
-                .addComponent(jLabel3)
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addGap(153, 153, 153)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(196, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel3, "card2");
@@ -403,7 +405,7 @@ public class MainFrame extends javax.swing.JFrame {
         Jugador c=(Jugador)jTable3.getModel().getValueAt(jTable3.getSelectedRow(),-1);
         jugadors.remove(c);
         
-        ModelTaula<Jugador> mt2 = new ModelTaula<>(new String[]{"Nom", "Email", "Equips"}, MainFrame.jugadors, Jugador.class);
+        ModelTaula<Jugador> mt2 = new ModelTaula<>(new String[]{"Nom", "Email", "Numero", "Equips"}, MainFrame.jugadors, Jugador.class);
         //mt2 = new ModelTaula<>(JFramePrincipal.agenda, Contacte.class);
         
         //Li assigno el model a la taula
@@ -437,7 +439,7 @@ public class MainFrame extends javax.swing.JFrame {
         //cm.moveColumn(0, 1);    //La primer columna passa a mostrar-se en 2n lloc
         //cm.removeColumn(cm.getColumn(2));
         
-        ModelTaula<Jugador> mt2 = new ModelTaula<>(new String[]{"Nom", "Email", "Equips"}, MainFrame.jugadors, Jugador.class);
+        ModelTaula<Jugador> mt2 = new ModelTaula<>(new String[]{"Nom", "Email","Número", "Equips"}, MainFrame.jugadors, Jugador.class);
         //mt2 = new ModelTaula<>(JFramePrincipal.agenda, Contacte.class);
         
         //Li assigno el model a la taula
@@ -487,7 +489,7 @@ public class MainFrame extends javax.swing.JFrame {
             ModelTaula<Jugador> mt=(ModelTaula<Jugador>)jTable3.getModel();
             jTextField1.setText((String)mt.getValueAt(i, 0));
             jTextField2.setText((String)mt.getValueAt(i, 1));
-            jTextField3.setText((String)mt.getValueAt(i, 2));
+            jTextField3.setText(mt.getValueAt(i, 2).toString());
             jTextField4.setText((String)mt.getValueAt(i, 3));
             
             ArrayList<Equip> lt=(ArrayList<Equip>)mt.getValueAt(i, 2);
