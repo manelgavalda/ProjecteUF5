@@ -409,7 +409,7 @@ public class ProjecteUF5 {
         System.out.println();
 */
 
- /* Exercici 1 excepcions 
+ /* Exercici 1 EXCEPCIONS 
         LlistaDeNumeros1 a = new LlistaDeNumeros1();
 
         //No funciona perquè no existeix la carpeta.
@@ -422,7 +422,7 @@ public class ProjecteUF5 {
         a.readList("prova");
         */
 
-         /* Exercici 2 excepcions
+  /* Exercici 2 EXCEPCIONS
          LlistaDeNumeros2 a = new LlistaDeNumeros2();
 
          //Dona error ja que el valorno són números i ens salta un NumberFormatException
@@ -432,7 +432,7 @@ public class ProjecteUF5 {
         a.writeList("holas");
 */
 
- /*Exerici 3 excepcions
+ /*Exerici 3 EXCEPCIONS
         LlansaExcepcio a= new LlansaExcepcio();
         LlansaExcepcio2 b= new LlansaExcepcio2();
         LlansaExcepcio3 c= new LlansaExcepcio3();
@@ -447,7 +447,7 @@ public class ProjecteUF5 {
         d.metode1();
 */
  
- /* Exercici 4 excepcions 
+ /* Exercici 4 EXCEPCIONS 
  
         //1. Si el pare llança excepció el fill pot triar llançarla o no.
  
@@ -463,7 +463,7 @@ public class ProjecteUF5 {
  
 **/
  
- /* Exercici 5 excepcions
+ /* Exercici 5 EXCEPCIONS
  
  AutoCloseableExample e = new AutoCloseableExample();
  
