@@ -25,9 +25,9 @@ public class RandomAccessFile1 {
         int numero;
         try {
             //se abre el fichero para lectura y escritura
-            fichero = new RandomAccessFile("/ficheros/enteros.dat", "rw");
+            fichero = new RandomAccessFile("nomirar.dat", "rw");
             mostrarFichero(); //muestra el contenido original del fichero
-            System.out.print("Introduce un número entero para añadir al final del fichero: ");
+            System.out.print("Introdueix un número per afegir al final del fitxer: ");
             numero = sc.nextInt(); //se lee el entero a añadir en el fichero
             fichero.seek(fichero.length()); //nos situamos al final del fichero
             fichero.writeInt(numero);       //se escribe el entero
@@ -54,10 +54,10 @@ public class RandomAccessFile1 {
             fichero.seek(0); //nos situamos al principio
             while (true) {
                 n = fichero.readInt();  //se lee  un entero del fichero
-                System.out.println(n);  //se muestra en pantalla
+                System.out.println("El número és: "+ n);  //se muestra en pantalla
             }
         } catch (EOFException e) {
-            System.out.println("Fin de fichero");
+            System.out.println("Fi del fitxer");
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

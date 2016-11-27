@@ -35,8 +35,7 @@ public class Alumne {
         public static void main(String[] args) 
         throws IOException, ClassNotFoundException {
             File file = new File("alumnes.dat");
-
- 
+            
         try (ObjectOutputStream out = new ObjectOutputStream(new
                             BufferedOutputStream(new FileOutputStream(FITXER)))) {
 
@@ -61,17 +60,7 @@ public class Alumne {
 
             System.out.format ("On %tA, %<tB %<te, %<tY:%n", date);
 
-            try {
-                while (true) {
-                    (Alumne) in.readObject();
-                    unit = in.readInt();
-                    desc = in.readUTF();
-                    System.out.format("You ordered %d units of %s at $%.2f%n",
-                            unit, desc, price);
-                    total = total.add(price.multiply(new BigDecimal(unit)));
-                }
-            } catch (EOFException e) {}
-            System.out.format("For a TOTAL of: $%.2f%n", total);
+            
         }
-    }
+        }
 }
