@@ -8,6 +8,7 @@ package projecteuf5;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.EOFException;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -33,12 +34,11 @@ public class Alumne {
     
         public static void main(String[] args) 
         throws IOException, ClassNotFoundException {
+            File file = new File("alumnes.dat");
 
  
-        ObjectOutputStream out = null;
-        try {
-            out = new ObjectOutputStream(new
-                    BufferedOutputStream(new FileOutputStream(FITXER)));
+        try (ObjectOutputStream out = new ObjectOutputStream(new
+                            BufferedOutputStream(new FileOutputStream(FITXER)))) {
 
             out.writeObject(Calendar.getInstance());
 //            for (int i = 0; i < prices.length; i ++) {
@@ -46,14 +46,10 @@ public class Alumne {
 //                out.writeInt(units[i]);
 //                out.writeUTF(descs[i]);
 //            }
-        } finally {
-            if(out!=null) out.close();
         }
 
-        ObjectInputStream in = null;
-        try {
-            in = new ObjectInputStream(new
-                    BufferedInputStream(new FileInputStream(FITXER)));
+        try (ObjectInputStream in = new ObjectInputStream(new
+                            BufferedInputStream(new FileInputStream(FITXER)))) {
 
             Calendar date = null;
             BigDecimal price;
@@ -67,7 +63,7 @@ public class Alumne {
 
             try {
                 while (true) {
-                    price = (BigDecimal) in.readObject();
+                    (Alumne) in.readObject();
                     unit = in.readInt();
                     desc = in.readUTF();
                     System.out.format("You ordered %d units of %s at $%.2f%n",
@@ -76,8 +72,6 @@ public class Alumne {
                 }
             } catch (EOFException e) {}
             System.out.format("For a TOTAL of: $%.2f%n", total);
-        } finally {
-            if(in!=null) in.close();
         }
     }
 }
