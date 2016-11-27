@@ -518,7 +518,9 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
                 Jugador c=(Jugador)jTable3.getModel().getValueAt(jTable3.getSelectedRow(),-1);
         c.set1nom(jTextField1.getText());
-        c.set2email(jTextField2.getText());
+        if(jTextField2.getText()=="^(.+)@(.+)$"){
+            c.set2email(jTextField2.getText());
+        }
         c.set3numero(Integer.valueOf(jTextField3.getText()));
         c.set2email(jTextField4.getText());
         int[] selecs=jTable2.getSelectedRows();
